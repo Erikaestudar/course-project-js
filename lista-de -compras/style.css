@@ -101,7 +101,6 @@ ul.list {
     list-style: none;
     color: var(--text-secondary);
     margin-block: 2rem;
-    display: none;
 }
 
 .list li {
@@ -156,6 +155,7 @@ ul.list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 1;
     display: none;
 }
 
@@ -165,8 +165,8 @@ ul.list {
     gap: .5rem;
 }
 
-.show-result {
-    display: block;
+.show-alert {
+    display: flex;
 }
 
 @media (width >= 62em) {
