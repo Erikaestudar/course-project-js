@@ -19,7 +19,7 @@
     --border-hover: #b9c2d0;
     --ff: "Inter", sans-serif;
     --title: 700 1.5rem/2rem var(--ff);
-    --label: 600 1rem/1.25rem var(--ff);
+    --input: 600 1rem/1.25rem var(--ff);
     --base: 500 1rem/1.25rem var(--ff);
     --link: 500 0.875rem/1rem var(--ff);
 }
@@ -34,11 +34,13 @@ body {
 h1 {
     font: var(--title);
     color: var(--text-primary);
+    margin-block: 1rem 1.5rem;
 }
 
-.container {
+/* Layout */
+section.container {
     max-width: 39.1875rem;
-    padding-inline: 2rem;
+    padding-inline: 2.5rem;
     margin-inline: auto;
 }
 
@@ -47,18 +49,106 @@ header {
     margin-block: 1rem 3rem;
 }
 
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    border: 1px solid red;
+}
+
+/* LABEL */
+label {
+    display: none;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    outline: 0;
+    font: var(--link);
+    color: var(--text-tertiary);
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1rem .75rem;
+    flex: 1;
+}
+
+input:hover {
+    border: 2px solid var(--border-hover);
+}
+
+input:focus {
+    border: 2px solid var(--brand);
+}
+
+/* BUTTON */
+button {
+    border: none;
+    font: var(--input);
+    color: var(--bg-secondary);
+    background-color: var(--brand);
+    padding: 1rem .75rem;
+    border-radius: 0.75rem;
+}
+
+button:hover {
+    background-color: var(--brand-hover);
+}
+
+/* Lista */
 ul.list {
     list-style: none;
     color: var(--text-secondary);
     margin-block: 2rem;
+    display: none;
 }
 
 .list li {
     background-color: var(--bg-secondary);
+    margin-bottom: 0.75rem;
     padding: 0.75rem;
     border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
+.list li span {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.list li span.trash-bin {
+    margin-left: auto;
+}
+
+/* LAYOUT da LIST */
+/* CHECKBOX ICON */
+.list li span.checkbox {
+    background: url(assets/icons/checkbox-default.svg) no-repeat center/cover;
+}
+
+.list li:hover span.checkbox {
+    background: url(assets/icons/checkbox-hover.svg) no-repeat center/cover;
+}
+
+/* Checkbox quando for selecionado */
+.list li.checked span.checkbox {
+    background: url(assets/icons/checkbox-checked.svg) no-repeat center/cover;
+}
+
+.list li.checked p.item-name {
+    text-decoration: line-through;
+}
+
+/* TRASH-BIN ICON */
+.list li span.trash-bin {
+    background: url(assets/icons/trash-bin.svg) no-repeat center/cover;
+}
+
+/* ALERT MESSAGE */
 .alert {
     background-color: var(--danger);
     color: var(--bg-secondary);
@@ -67,10 +157,23 @@ ul.list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    display: none;
 }
 
 .alert > span {
     display: flex;
     align-items: center;
     gap: .5rem;
+}
+
+.show-result {
+    display: block;
+}
+
+@media (width >= 62em) {
+    form {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }

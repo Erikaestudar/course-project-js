@@ -17,23 +17,25 @@
         </div>
     </header>
     <main>
-        <div class="container">
+        <section class="container">
             <div class="back">
                 <img src="assets/back-arrow.svg" alt="voltar a página">
             </div>
             <h1>Compras da semana</h1>
             <form>
-                <label for="item">item</label>
+                <label for="item" title="item"></label>
                 <input type="text" name="item" id="item" placeholder="Adicione um novo item">
                 <button type="submit" class="addBtn">Adicionar item</button>
             </form>
+            
             <ul class="list">
-                <li>
+                <li class="checked">
                     <span class="checkbox"></span>
-                    <p>Suco de laranja</p>
+                    <p class="item-name">Suco de laranja</p>
                     <span class="trash-bin"></span>
                 </li>
             </ul>
+            
             <div class="alert">
                 <span>
                     <img src="assets/icons/alert.svg" alt="">
@@ -41,7 +43,7 @@
                 </span>
                 <img src="assets/icons/close-icon.svg" alt="">
             </div>
-        </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
