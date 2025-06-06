@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>Lista de compras</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="assets/logo.svg" alt="logo">
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="back">
+                <img src="assets/back-arrow.svg" alt="voltar a página">
+            </div>
+            <h1>Compras da semana</h1>
+            <form>
+                <label for="item">item</label>
+                <input type="text" name="item" id="item" placeholder="Adicione um novo item">
+                <button type="submit" class="addBtn">Adicionar item</button>
+            </form>
+            <ul class="list">
+                <li>
+                    <span class="checkbox"></span>
+                    <p>Suco de laranja</p>
+                    <span class="trash-bin"></span>
+                </li>
+            </ul>
+            <div class="alert">
+                <span>
+                    <img src="assets/icons/alert.svg" alt="">
+                    O item foi removido da lista
+                </span>
+                <img src="assets/icons/close-icon.svg" alt="">
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
