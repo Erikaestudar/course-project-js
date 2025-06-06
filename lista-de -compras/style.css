@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bg-primary: #f4f5fb;
+    --bg-secondary: #ffffff;
+
+    --brand: #ca3884;
+    --brand-hover: #a52c6b;
+    --danger: #c93847;
+
+    --text-primary: #080c12;
+    --text-secondary: #374151;
+    --text-tertiary: #9ca3af;
+
+    --border: #d1d5db;
+    --border-hover: #b9c2d0;
+    --ff: "Inter", sans-serif;
+    --title: 700 1.5rem/2rem var(--ff);
+    --label: 600 1rem/1.25rem var(--ff);
+    --base: 500 1rem/1.25rem var(--ff);
+    --link: 500 0.875rem/1rem var(--ff);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font: var(--base);
+    background-color: var(--bg-primary);
+}
+
+h1 {
+    font: var(--title);
+    color: var(--text-primary);
+}
+
+.container {
+    max-width: 39.1875rem;
+    padding-inline: 2rem;
+    margin-inline: auto;
+}
+
+header {
+    text-align: center;
+    margin-block: 1rem 3rem;
+}
+
+ul.list {
+    list-style: none;
+    color: var(--text-secondary);
+    margin-block: 2rem;
+}
+
+.list li {
+    background-color: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+}
+
+.alert {
+    background-color: var(--danger);
+    color: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: .75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert > span {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
