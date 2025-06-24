@@ -82,6 +82,10 @@ fieldset:focus-within legend {
   font-weight: 700;
 }
 
+label {
+  display: none;
+}
+
 input,
 select {
   flex: 1;
