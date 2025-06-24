@@ -1,5 +1,6 @@
 let form = document.querySelector("form")
 let addItem = document.querySelector("input#item")
+addItem.focus()
 
 let list = document.querySelector("ul.list")
 
@@ -33,9 +34,6 @@ form.addEventListener("submit", (event) => {
 
     list.appendChild(newItem)
 
-    addItem.value = ""
-    addItem.focus()
-
     newItem.addEventListener("click", () => {
         newItem.classList.toggle("checked")
     })
@@ -45,6 +43,9 @@ form.addEventListener("submit", (event) => {
         list.removeChild(newItem)
         alertMsg.classList.add("show-alert")
     })
+
+    addItem.value = ""
+    addItem.focus()
 })
 
 
