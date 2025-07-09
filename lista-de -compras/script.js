@@ -1,12 +1,9 @@
 let form = document.querySelector("form")
 let addItem = document.querySelector("input#item")
-addItem.focus()
-
 let list = document.querySelector("ul.list")
-
 let alertMsg = document.querySelector(".alert")
-let closeAlert = document.querySelector("img#close-msg")
 
+addItem.focus()
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -15,7 +12,7 @@ form.addEventListener("submit", (event) => {
 
     // Criando uma nova li quando o formulário for enviado.
     let newItem = document.createElement("li")
-    newItem.classList.add("show-result")
+    newItem.classList.add("item")
 
     let checkbox = document.createElement("span")
     checkbox.classList.add("checkbox")
@@ -28,27 +25,32 @@ form.addEventListener("submit", (event) => {
     trash.classList.add("trash-bin")
     
     // Adicionando todos os elementos na li.
-    newItem.appendChild(checkbox)
-    newItem.appendChild(itemName)
-    newItem.appendChild(trash)
+    newItem.append(checkbox, itemName, trash)
 
     list.appendChild(newItem)
-
-    newItem.addEventListener("click", () => {
-        newItem.classList.toggle("checked")
-    })
-
-    trash.addEventListener("click", (event) => {
-        event.stopPropagation()
-        list.removeChild(newItem)
-        alertMsg.classList.add("show-alert")
-    })
 
     addItem.value = ""
     addItem.focus()
 })
 
 
-closeAlert.addEventListener("click", () => {
-    alertMsg.classList.remove("show-alert")
+list.addEventListener("click", (event) => {
+    if (event.target.classList.contains("trash-bin")) {
+        let item = event.target.closest(".item")
+        item.remove()
+
+        alertMsg.classList.add("show-alert")
+        return
+    }
+
+    if (event.target.classList.contains("item") || event.target.classList.contains("checkbox") || event.target.classList.contains("item-name")) {
+        let check = event.target.closest(".item")
+        check.classList.toggle("checked")
+    }
+})
+
+alertMsg.addEventListener("click", (event) => {
+    if (event.target.classList.contains("close-msg")) {
+        alertMsg.classList.remove("show-alert")
+    }
 })
