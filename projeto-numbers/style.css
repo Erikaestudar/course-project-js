@@ -4,6 +4,47 @@
     box-sizing: border-box;
 }
 
+:root {
+    --content-primary: #ffffff;
+    --content-secondary: #c7c9cc;
+    --content-tertiary: #d9d9d9;
+    --content-brand: #c58de7;
+    --color-inverse: #030203;
+
+    --b-primary: #020202;
+    --b-secondary: #111012;
+    --b-tertiary: #24222e;
+    --b-brand: #c58de7;
+    --b-gray: #3d3d3d;
+
+    --gradient-border: linear-gradient(to right, #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%);
+    --gradient-background:linear-gradient(to right, #D586E0 0%, #91A1FA 98.93%);
+    --gradient-content: linear-gradient(to right, #C7C9CC 0%, #3D3D3D 100%);
+
+    --f-overline: 700 1rem/150% "Roboto Mono", monospace;
+
+    --f-display: "Sora", sans-serif;
+    --display-large: 800 4.5rem/130% var(--f-display);
+    --display-medium: 800 2.5rem/130% var(--f-display);
+    --display-small: 700 2rem/130% var(--f-display);
+
+    --f-paragraph: "Roboto Flex", sans-serif;
+    --paragraph-large: 500 1rem/150% var(--f-paragraph);
+    --paragraph-medium: 500 0.875rem/150% var(--f-paragraph);
+    --paragraph-small: 500 0.75rem/150% var(--f-paragraph);
+
+    --label-medium: 700 1.25rem/150% var(--f-paragraph);
+    --label-small: 700 1rem/150% var(--f-paragraph);
+} 
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #020202 url(assets/background.png) no-repeat center/cover;
+    color: var(--content-primary);
+    font: var(--display-large);
+}
+
 .container {
     max-width: 80rem;
     margin-inline: auto;
@@ -14,4 +55,11 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+
+@media (width < 80em) {
+    .container {
+        padding: 1.5rem;
+    }
 }
