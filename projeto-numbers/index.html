@@ -34,22 +34,24 @@
                     </p>
                 </div>
                 <form>
-                    <div class="input-container">
-                        <div class="input-wrapper">
-                            <label for="quantity">números</label>
-                            <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
+                    <div class="result">
+                        <div class="input-container">
+                            <div class="input-wrapper">
+                                <label for="quantity">números</label>
+                                <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="start-number">de</label>
+                                <input type="text" name="start-number" id="start-number" title="Digite um número inicial.">
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="end-number">de</label>
+                                <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
+                            </div>
                         </div>
                         <div class="input-wrapper">
-                            <label for="start-number">de</label>
-                            <input type="text" name="start-number" id="start-number" title="Digite um número inicial.">
+                            <div class="input-button"></div>
                         </div>
-                        <div class="input-wrapper">
-                            <label for="end-number">de</label>
-                            <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
-                        </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <div class="input-button"></div>
                     </div>
                     <button type="submit" id="random-btn">sortear</button>
                 </form>
@@ -57,22 +59,25 @@
 
             <aside>
                 <div class="info-wrapper">
+                    <img src="assets/icons/ask.svg" alt="">    
                     <div class="question">
-                        <img src="assets/icons/ask.svg" alt="">
                         <span class="quest">Como funciona o sorteador de números?</span>
+
+                        <p>
+                            O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.
+                        </p>
                     </div>
-                    <p>
-                        O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.
-                    </p>
+
                 </div>
                 <div class="info-wrapper">
+                    <img src="assets/icons/ask.svg" alt="">
                     <div class="question">
-                        <img src="assets/icons/ask.svg" alt="">
                         <span class="quest">Posso escolher o intervalo dos números?</span>
-                    </div>
-                    <p>
+
+                        <p>
                         Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.
-                    </p>
+                        </p>   
+                    </div>
                 </div>
             </aside>
         </main>
