@@ -19,43 +19,44 @@
         </div>
     
         <main>
-            <section class="main-container">
-                <header>
-                    <h3>Online - gratuito</h3>
-                    <h1>Sorteador de números</h1>
-                </header>
-            </section>
-
-            <section class="main-container">
-                <div class="info-wrapper">
-                    <h2>Quero sortear:</h2>
-                    <p>
-                        defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!
-                    </p>
-                </div>
-                <form>
-                    <div class="result">
-                        <div class="input-container">
-                            <div class="input-wrapper">
-                                <label for="quantity">números</label>
-                                <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
-                            </div>
-                            <div class="input-wrapper">
-                                <label for="start-number">de</label>
-                                <input type="text" name="start-number" id="start-number" title="Digite um número inicial.">
-                            </div>
-                            <div class="input-wrapper">
-                                <label for="end-number">de</label>
-                                <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
-                            </div>
-                        </div>
-                        <div class="input-wrapper">
-                            <div class="input-button"></div>
-                        </div>
+            <div class="grid-container">
+                <section class="header-container">
+                    <header>
+                        <h3>Online - gratuito</h3>
+                        <h1>Sorteador de números</h1>
+                    </header>
+                </section>
+                <section class="form-container">
+                    <div class="info-wrapper">
+                        <h2>Quero sortear:</h2>
+                        <p>
+                            defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!
+                        </p>
                     </div>
-                    <button type="submit" id="random-btn">sortear</button>
-                </form>
-            </section>
+                    <form>
+                        <div class="result">
+                            <div class="input-container">
+                                <div class="input-wrapper">
+                                    <label for="quantity">números</label>
+                                    <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="start-number">de</label>
+                                    <input type="text" name="start-number" id="start-number" title="Digite um número inicial.">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="end-number">de</label>
+                                    <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
+                                </div>
+                            </div>
+                            <div class="input-wrapper">
+                                <div class="input-button"></div>
+                            </div>
+                        </div>
+                        <button type="submit" id="random-btn">sortear</button>
+                    </form>
+                </section>
+            </div>
 
             <aside>
                 <div class="info-wrapper">
