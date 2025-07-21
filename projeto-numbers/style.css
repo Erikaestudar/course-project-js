@@ -162,10 +162,13 @@ button {
 
 /* ASIDE */
 aside .info-wrapper {
-    margin-bottom: 2.25rem;
     display: flex;
     align-items: flex-start;
     gap: .5rem;
+}
+
+aside .info-wrapper + .info-wrapper {
+    margin-top: 2.25rem;
 }
 
 aside .quest {
@@ -190,7 +193,7 @@ section {
     }
 }
 
-@media (width >= 64em) {
+@media (width >= 80em) {
     .container {
         display: flex;
         flex-direction: column;
@@ -206,5 +209,24 @@ section {
         display: grid;
         grid-template-columns: 46.26% 43.89%;
         justify-content: space-between;
+    }
+
+    section.header-container {
+        position: relative;
+    }
+
+    section.header-container header h1 {
+        font: var(--display-large);
+    }
+
+    section.header-container header {
+        margin-bottom: 2.375rem;
+    }
+
+    aside {
+        border: 1px solid red;
+        max-width: 28rem;
+        position: absolute;
+        top: 58.5%;
     }
 }
