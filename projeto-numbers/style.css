@@ -70,14 +70,48 @@ section + section {
 }
 
 /* ESTILOS DAS FONTES GERAL E NO HEADER */
-h1, h2, h3, button, label {
+h1, h2, a, button, label {
     text-transform: uppercase;
 }
 
-section header h3 {
+/* Criando efeito degradê */
+section header a {
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+section header .subtitle {
+    cursor: text;  
+    border: 0;
+    background-color: transparent;
+    width: fit-content;
+
     font: var(--f-overline);
     letter-spacing: .125rem;
-    color: linear-gradient(to right, #C7C9CC 0%, #3D3D3D 100%);
+    color: var(--content-primary);
+}
+
+.subtitle[aria-label] {
+    position: relative;
+}
+
+/* fundo escuro ficará em cima */
+.subtitle[aria-label]::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background-color: var(--gradient-content);
+}
+
+/* fundo degradê ficará em embaixo com as letras transparente */
+.subtitle[aria-label]::after {
+    content: attr(aria-label);
+    background: var(--gradient-content);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    z-index: 1;
 }
 
 section header h1 {
@@ -126,22 +160,44 @@ input {
 
     width: 100%;
     border-radius: .5rem;
-    border: 2px solid transparent;
-    outline: 1px solid var(--b-secondary);
     background-color: var(--b-secondary);
 
     padding: .25rem .5rem;
     font: var(--display-small);
     text-align: center;
+    
     color: var(--content-primary);
 }
 
 input:hover {
-    outline: .125rem solid var(--b-brand);
+    background: var(--gradient-border);
+}
+
+input[type="text"] {
+    position: relative;
+}
+
+input[type="text"]::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 1px;
+    background-color: var(--b-secondary);
+}
+
+
+input[type="text"]::after {
+    content: "";
+    position: relative;
+    background: var(--gradient-border);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 1;
 }
 
 input:focus {
-    outline: .25rem solid var(--b-brand);
+    outline: .25rem solid transparent;
     outline-offset: .1px;
 }
 
@@ -186,6 +242,7 @@ section {
 
     border: 1px solid rgb(0, 153, 255);
 }
+
 
 @media (width < 80em) {
     .container {

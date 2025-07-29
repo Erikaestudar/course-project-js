@@ -22,7 +22,7 @@
             <div class="grid-container">
                 <section class="header-container">
                     <header>
-                        <h3>Online - gratuito</h3>
+                        <a href="#" aria-label="Online - gratuito" class="subtitle"></a>
                         <h1>Sorteador de números</h1>
                     </header>
                 </section>
@@ -49,8 +49,11 @@
                                     <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
                                 </div>
                             </div>
-                            <div class="input-wrapper">
-                                <div class="input-button"></div>
+                            <div class="input-container">
+                                <label for="switch" id="checkbox-track" aria-label="type">
+                                    <input type="checkbox" name="switch" id="switch">
+                                </label>
+                                <span>Não repetir número</span>
                             </div>
                         </div>
                         <button type="submit" id="random-btn">sortear</button>
