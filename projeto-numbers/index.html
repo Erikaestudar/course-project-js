@@ -30,30 +30,29 @@
                     <div class="info-wrapper">
                         <h2>Quero sortear:</h2>
                         <p>
-                            defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!
+                            Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!
                         </p>
                     </div>
                     <form>
                         <div class="result">
                             <div class="input-container">
-                                <div class="input-wrapper">
-                                    
-                                    <div class="border-input"></div>
+                                <div class="input-wrapper">                                    
                                     <label for="quantity">números</label>
-                                    <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
-                                    
+                                    <div class="border-input">
+                                        <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
+                                    </div>                                    
                                 </div>
                                 <div class="input-wrapper">
-                                    <div class="border-input"></div>
-                                    
-                                    <label for="start-number">de</label>
-                                    <input type="text" name="start-number" id="start-number" title="Digite um número inicial.">
+                                    <label for="from">de</label>
+                                    <div class="border-input">
+                                        <input type="text" name="from" id="from" title="Digite um número inicial.">
+                                    </div>
                                 </div>
                                 <div class="input-wrapper">
-                                    <div class="border-input"></div>
-                                    
-                                    <label for="end-number">de</label>
-                                    <input type="text" name="end-number" id="end-number" title="Digite outro número para finalizar.">
+                                    <label for="to">até</label>
+                                    <div class="border-input">
+                                        <input type="text" name="to" id="to" title="Digite outro número para finalizar.">
+                                    </div>
                                 </div>
                             </div>
                             
@@ -64,7 +63,20 @@
                                 <span>Não repetir número</span>
                             </div>
                         </div>
-                        <button type="submit" id="random-btn">sortear</button>
+                        <button type="submit" id="random-btn">
+                            <span class="button-text">sortear</span>
+                            <div class="images">
+                                <!--
+                                <div class="ani-01">
+                                    <img src="./assets/icons/arrow.svg" alt="">
+                                </div>
+                                -->
+                                <div class="ani-02">
+                                    <img src="assets/icons/arrow-loop.svg" alt="">
+                                    <img src="assets/icons/play.svg" alt="">
+                                </div>
+                            </div>
+                        </button>
                     </form>
                 </section>
             </div>
