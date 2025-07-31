@@ -22,7 +22,7 @@
             <div class="grid-container">
                 <section class="header-container">
                     <header>
-                        <span href="#" aria-label="Online - gratuito" class="subtitle"></span>
+                        <a href="#" aria-label="Online - gratuito" class="subtitle"></a>
                         <h1>Sorteador de números</h1>
                     </header>
                 </section>
@@ -34,9 +34,18 @@
                         </p>
                     </div>
                     <form>
+                        <!--
                         <div class="result">
+                            <div class="numbers-wrapper">
+                                <div class="square">22</div>
+                                <span class="number"></span>
+                            </div>
+                                              
+                        </div>
+                        -->
+                        <div class="form-wrapper">
                             <div class="input-container">
-                                <div class="input-wrapper">                                    
+                                <div class="input-wrapper">     
                                     <label for="quantity">números</label>
                                     <div class="border-input">
                                         <input type="text" name="quantity" id="quantity" title="Digite a quantidade de números a serem sorteados.">
@@ -57,24 +66,25 @@
                             </div>
                             
                             <div class="input-container">
-                                <label for="switch" id="checkbox-track" aria-label="type">
+                                <label for="switch" class="checkbox-track" aria-label="type">
                                     <input type="checkbox" name="switch" id="switch">
                                 </label>
                                 <span>Não repetir número</span>
                             </div>
                         </div>
-                        <button type="submit" id="random-btn">
+                        <button type="submit" class="random-btn">
                             <span class="button-text">sortear</span>
                             <div class="images">
-                                <!--
+                                
                                 <div class="ani-01">
                                     <img src="./assets/icons/arrow.svg" alt="">
                                 </div>
-                                -->
+                                <!--
                                 <div class="ani-02">
                                     <img src="assets/icons/arrow-loop.svg" alt="">
                                     <img src="assets/icons/play.svg" alt="">
                                 </div>
+                                -->
                             </div>
                         </button>
                     </form>
@@ -105,5 +115,6 @@
             </aside>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -63,6 +63,11 @@ body {
 .logo img {
     width: 2.125rem;
     height: 2.125rem;
+    transition: transform 500ms;   
+}
+
+.logo:hover img {
+    transform: rotate(90deg);
 }
 
 section + section {
@@ -70,13 +75,15 @@ section + section {
 }
 
 /* ESTILOS DAS FONTES GERAL E NO HEADER */
-h1, h2, a, button, label {
+h1, h2, a, label {
     text-transform: uppercase;
 }
 
 /* Criando efeito degradê */
-section header span {
+section header a {
     margin-bottom: 0.5rem;
+    text-decoration: none;
+    cursor: text;
 }
 
 section header .subtitle {
@@ -108,7 +115,6 @@ section header .subtitle {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    position: relative;
 }
 
 section header h1 {
@@ -130,10 +136,31 @@ section header h1 {
     font: var(--paragraph-medium);
 }
 
+/* RESULT BLOCK */
+.result {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.square {
+    width: 5.25rem;
+    height: 5.25rem;
+
+    border-radius: 1.5rem;
+    padding-inline: 0.75rem;  
+    background-color: var(--content-brand);
+    position: relative;  
+}
+
+.square::before {
+    content: "";
+    animation: rotate 4s ease both;
+}
+
 
 
 /* FORMULÁRIO - INPUTS, BUTTON */
-form .result {
+form .form-wrapper {
     margin-block: 2.5rem;
 }
 
@@ -163,7 +190,7 @@ form .result {
     color: var(--content-brand);
 }
 
-/* Degradê */
+/* Degradê nos inputs */
 .border-input {
     position: relative;
     max-width: 6.5rem;
@@ -182,10 +209,12 @@ form .result {
 
     border-radius: inherit;
     background: var(--gradient-border);
+
     z-index: -1;
     padding: 1.5px;
     opacity: 0;
-    animation: 3s spin linear infinite;
+    
+    animation: spin 20s linear infinite;
     transition: opacity .4s ease;
 }
 
@@ -222,8 +251,6 @@ input:hover {
 }
 
 
-
-
 /* Switch de não repetir */
 .input-container:last-child {
     margin-top: 1.75rem;
@@ -233,14 +260,14 @@ input:hover {
     align-items: center;
 }
 
-#checkbox-track {
+.checkbox-track {
     position: relative;
     margin: 0;
     width: 2rem;
     height: 1.25rem;
 }
 
-#checkbox-track input[type="checkbox"] {
+.checkbox-track input[type="checkbox"] {
     outline: none;
     appearance: none;
     width: 100%;
@@ -254,7 +281,7 @@ input:hover {
     transition: all 0.3s ease;
 }
 
-#checkbox-track input[type="checkbox"]::before {
+.checkbox-track input[type="checkbox"]::before {
     content: "";
     position: absolute;
     width: 0.93rem;
@@ -267,51 +294,89 @@ input:hover {
     transition: all 0.3s ease;
 }
 
-#checkbox-track input[type="checkbox"]:checked {
+.checkbox-track input[type="checkbox"]:checked {
     background: var(--gradient-background);
     border: 1px solid transparent;
 }
 
-#checkbox-track input[type="checkbox"]:checked::before {
+.checkbox-track input[type="checkbox"]:checked::before {
     transform: translateX(0.70rem);
 }
 
 
-
 /*  */
 button {
-    font: var(--label-medium);
+    all: unset;
     width: 100%;
-    padding: .75rem 1.5rem;
+    padding: 1rem 1rem;
     border-radius: .5rem;
-    outline: none;
-    border: 2px solid transparent;
     cursor: pointer;
-}
 
-#random-btn {
-    color: var(--content-primary);
-    background-color: var(--b-tertiary);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+}
+
+.random-btn {
+    text-transform: uppercase;
+    font: var(--label-medium);
+    color: var(--content-primary);
+    background-color: var(--b-tertiary);
+    position: relative;
+    transition: background-color .4s ease;
+}
+
+.random-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    translate: -50% -50%;
+    border-radius: inherit;
+
+    background: var(--gradient-border);
+    z-index: -1;
+    opacity: 0;
+    padding: 2px;
+    background-position: 0% 100%;
+}
+
+.random-btn:hover {
+    background-color: var(--b-secondary);
+}
+
+.random-btn:hover::before {
+    animation: spin 3s linear infinite;
+    transition: opacity .2s ease;
+    opacity: 1;
 }
 
 /* Imagens do botão */
-#random-btn .ani-01,
-#random-btn .ani-02 {
+.random-btn .ani-01,
+.random-btn .ani-02 {
     display: flex;
     align-items: center;
 }
 
-#random-btn .ani-02 {
+.random-btn:hover .ani-01 {
+    animation: move 2s ease both;
+}
+
+
+.random-btn .ani-02 {
     position: relative;
 }
 
-#random-btn .ani-02 img:last-child {
+.random-btn:hover .ani-02 img[src*="arrow-loop"] {
+    animation: rotate 3s ease both;
+}
+
+.random-btn .ani-02 img[src*="play"]{
     position: absolute;
-    left: 0.45rem;
+    left: 0.42rem;
 }
 
 
@@ -336,7 +401,6 @@ aside p {
     color: var(--content-secondary);
     font: var(--paragraph-small);
 }
-
 
 
 @media (width < 80em) {
@@ -387,5 +451,56 @@ aside p {
         max-width: 28rem;
         position: absolute;
         top: 58.5%;
+    }
+}
+
+
+@keyframes rotate {
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0.75rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes spin {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+
+
+@keyframes repeatSpin {
+    0%, 25% {
+        --angle: 0deg;
+    }
+
+    35% {
+        --angle: 90deg;
+    }
+
+    55% {
+        --angle: -180deg;
+    }
+
+    75% {
+        --angle: 90deg;
+    }
+
+    100% {
+        --angle: -360deg;
     }
 }
