@@ -21,7 +21,8 @@
     --gradient-background:linear-gradient(to right, #D586E0 0%, #91A1FA 98.93%);
     --gradient-content: linear-gradient(to right, #C7C9CC 0%, #3D3D3D 100%);
 
-    --f-overline: 700 1rem/150% "Roboto Mono", monospace;
+    --f-overline: "Roboto Mono", monospace;
+    --overline: 700 1rem/150% var(--f-overline); 
 
     --f-display: "Sora", sans-serif;
     --display-large: 800 4.5rem/130% var(--f-display);
@@ -33,8 +34,9 @@
     --paragraph-medium: 500 0.875rem/150% var(--f-paragraph);
     --paragraph-small: 500 0.75rem/150% var(--f-paragraph);
 
-    --label-medium: 700 1.25rem/150% var(--f-paragraph);
-    --label-small: 700 1rem/150% var(--f-paragraph);
+    --label-large: 700 1.25rem/150% var(--f-paragraph);
+
+    --label-medium: 700 1rem/150% var(--f-paragraph);
 } 
 
 body {
@@ -121,9 +123,8 @@ section header h1 {
     font: var(--display-medium);
 }
 
-
 .info-wrapper h2 {
-    font: var(--label-medium);
+    font: var(--label-large);
     margin-bottom: 2px;
 }
 
@@ -136,27 +137,50 @@ section header h1 {
     font: var(--paragraph-medium);
 }
 
+/* CONFIGURAÇÕES DE FONTE NO SORTEIO */
+.prize {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.prize p {
+    font: var(--f-overline);
+    text-transform: uppercase;
+}
+
 /* RESULT BLOCK */
 .result {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
+}
+
+.numbers-wrapper {
+    position: relative;  
 }
 
 .square {
     width: 5.25rem;
     height: 5.25rem;
 
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
     padding-inline: 0.75rem;  
     background-color: var(--content-brand);
-    position: relative;  
+    animation: rotate 2s ease both, hiddenSquare 1.5s 2s ease both;
 }
 
-.square::before {
-    content: "";
-    animation: rotate 4s ease both;
-}
+.number {
+    font: 700 4rem/125% var(--f-overline);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
+    animation: colorText 3s 1.9s ease both, showFont 1s 0.5s ease both, shrinkFont 1s 2.8s ease both;
+}
 
 
 /* FORMULÁRIO - INPUTS, BUTTON */
@@ -320,7 +344,7 @@ button {
 
 .random-btn {
     text-transform: uppercase;
-    font: var(--label-medium);
+    font: var(--label-large);
     color: var(--content-primary);
     background-color: var(--b-tertiary);
     position: relative;
@@ -457,7 +481,43 @@ aside p {
 
 @keyframes rotate {
     to {
-        rotate: 360deg;
+        rotate: 180deg;
+    }
+}
+
+@keyframes hiddenSquare {
+    to {
+        scale: 0.6;
+        opacity: 0;
+    }
+}
+
+@keyframes showFont {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes colorText {
+    from {
+        color: var(--color-inverse);
+    }
+
+    to {
+        color: var(--content-brand);
+    }
+}
+
+@keyframes shrinkFont {
+    from {
+        font: 700 4rem/125% var(--f-overline);
+    }
+    to {
+        font: 700 3rem/145% var(--f-overline);
     }
 }
 
