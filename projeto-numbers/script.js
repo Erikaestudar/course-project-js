@@ -12,34 +12,48 @@ inputs.forEach((input) => {
     let valueRegex = /\D+/g
     input.value = input.value.replace(valueRegex, "")
 
-
-    let numbersWrapper = document.createElement("div")
-    numbersWrapper.classList.add("numbers-wrapper")
-
-    let square = document.createElement("div")
-    square.classList.add("square")
-
-    let number = document.createElement("span")
-    number.classList.add("number")
-    number.textContent = input.value
+    if (input.value !== "") {
+        styleNumber(input.value)
         
-    numbersWrapper.append(square, number)
-    result.append(numbersWrapper)
+        /*
+        let numbersWrapper = document.createElement("div")
+        numbersWrapper.classList.add("numbers-wrapper")
+
+        let square = document.createElement("div")
+        square.classList.add("square")
+
+        let number = document.createElement("span")
+        number.classList.add("number")
+        number.textContent = input.value
+            
+        numbersWrapper.append(square, number)
+        result.append(numbersWrapper)
+        */
+    }
     })
-
-    
-
 })
 
 form.addEventListener("submit", (event) => {
-    event.defaultPrevented()
+    event.preventDefault()
 
 
 
-console.log(result)
 })
 
+function styleNumber() {
+        let numbersWrapper = document.createElement("div")
+        numbersWrapper.classList.add("numbers-wrapper")
 
+        let square = document.createElement("div")
+        square.classList.add("square")
+
+        let number = document.createElement("span")
+        number.classList.add("number")
+
+            
+        numbersWrapper.append(square, number)
+        result.append(numbersWrapper)
+}
 
 /*
 quantity.addEventListener("input", (event) => {

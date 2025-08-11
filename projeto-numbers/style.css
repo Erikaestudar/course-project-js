@@ -138,14 +138,17 @@ section header h1 {
 }
 
 /* CONFIGURAÇÕES DE FONTE NO SORTEIO */
-.prize {
+.subtitle-prize {
     margin-bottom: 2.5rem;
     text-align: center;
+    text-transform: uppercase;
 }
 
-.prize p {
+.paragraph-prize {
     font: var(--f-overline);
+    text-align: center;
     text-transform: uppercase;
+    margin-bottom: 3.5rem;
 }
 
 /* RESULT BLOCK */
@@ -154,6 +157,7 @@ section header h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .numbers-wrapper {
@@ -185,6 +189,7 @@ section header h1 {
 
 /* FORMULÁRIO - INPUTS, BUTTON */
 form .form-wrapper {
+    display: block;
     margin-block: 2.5rem;
 }
 
@@ -379,29 +384,45 @@ button {
 }
 
 /* Imagens do botão */
-.random-btn .ani-01,
-.random-btn .ani-02 {
-    display: flex;
-    align-items: center;
+/* BOTÃO DA ANIMAÇÃO DEFAULT */
+.random-btn span.default::after {
+    content: "SORTEAR";
 }
 
-.random-btn:hover .ani-01 {
+.random-btn .default .ani-01 {
+    background: url(assets/icons/arrow.svg) no-repeat center/cover;
+    width: 2rem;
+    height: 2rem;
+}
+
+.random-btn:hover .default .ani-01 {
     animation: move 2s ease both;
 }
 
+/* BOTÃO DA ANIMAÇÃO CHECKED */
+.random-btn span.checked::after {
+    content: "SORTEAR NOVAMENTE";
+}
 
-.random-btn .ani-02 {
+.random-btn .checked .ani-01 {
+    background: url(assets/icons/arrow-loop.svg) no-repeat center;
+    width: 1.5rem;
+    height: 1.5rem;
     position: relative;
 }
 
-.random-btn:hover .ani-02 img[src*="arrow-loop"] {
+.random-btn .checked .ani-02 {
+    background: url(assets/icons/play.svg) no-repeat center;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: 1.2rem;
+}
+
+.random-btn:hover .checked .ani-01  {
     animation: rotate 3s ease both;
 }
 
-.random-btn .ani-02 img[src*="play"]{
-    position: absolute;
-    left: 0.42rem;
-}
 
 
 /* ASIDE */
@@ -481,7 +502,7 @@ aside p {
 
 @keyframes rotate {
     to {
-        rotate: 180deg;
+        rotate: 360deg;
     }
 }
 
