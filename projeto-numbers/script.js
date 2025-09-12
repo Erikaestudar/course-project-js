@@ -118,7 +118,7 @@ function closeFormWrapper() {
 
     let paragraph = document.querySelector(".info-wrapper p")
     paragraph.classList.add("paragraph-prize")
-    paragraph.textContent =  "resultado"
+    paragraph.textContent =  "1° resultado"
 }
 
 // Abre o formulário para fazer um novo sorteio
