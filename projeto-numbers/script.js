@@ -54,6 +54,11 @@ form.addEventListener("submit", (event) => {
 
     const allPossibilities = to - from + 1
 
+    if (qty > allPossibilities) {
+        alert(`[ERRO] Quantidade insuficiente: você pediu ${qty}, mas só existem ${allPossibilities} números no intervalor.`)
+        return
+    }
+
     if (switchButton.checked && drawnNumbers.length >= allPossibilities) {
         clearAllInputs()
         openFormWrapper()
@@ -68,7 +73,7 @@ form.addEventListener("submit", (event) => {
             // MODO SEM REPETIÇÃO
             if (drawnNumbers.length >= allPossibilities) break
             do {
-                newNumber = Math.floor(Math.random() * (to - from + 1)) + from
+                newNumber = Math.floor(Math.random() * allPossibilities) + from
             } while (drawnNumbers.includes(newNumber))
                 drawnNumbers.push(newNumber)
                 randomNumberStyle(newNumber)
@@ -76,7 +81,7 @@ form.addEventListener("submit", (event) => {
 
         } else {
             // MODO COM REPETIÇÃO
-            newNumber = Math.floor(Math.random() * (to - from + 1)) + from
+            newNumber = Math.floor(Math.random() * allPossibilities) + from
             randomNumberStyle(newNumber)
             closeFormWrapper()
         }
