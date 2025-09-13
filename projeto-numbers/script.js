@@ -6,7 +6,7 @@ const quantityInput = document.querySelector("#quantity")
 quantityInput.focus()
 const fromInput = document.querySelector("#from")
 const toInput = document.querySelector("#to")
-const switchButton = document.querySelector("#switch")
+const noRepeat = document.querySelector("#switch")
 
 const result = document.querySelector(".result")
 
@@ -55,11 +55,11 @@ form.addEventListener("submit", (event) => {
     const allPossibilities = to - from + 1
 
     if (qty > allPossibilities) {
-        alert(`[ERRO] Quantidade insuficiente: você pediu ${qty}, mas só existem ${allPossibilities} números no intervalor.`)
+        alert(`[ERRO] Quantidade insuficiente: você pediu ${qty}, mas só existem ${allPossibilities} números no intervalo.`)
         return
     }
 
-    if (switchButton.checked && drawnNumbers.length >= allPossibilities) {
+    if (noRepeat.checked && drawnNumbers.length >= allPossibilities) {
         clearAllInputs()
         openFormWrapper()
         quantityInput.focus()
@@ -69,7 +69,7 @@ form.addEventListener("submit", (event) => {
     for ( let i = 0; i < qty; i++ ) {
         let newNumber
 
-        if (switchButton.checked) {
+        if (noRepeat.checked) {
             // MODO SEM REPETIÇÃO
             if (drawnNumbers.length >= allPossibilities) break
             do {
