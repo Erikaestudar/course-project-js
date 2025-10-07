@@ -107,7 +107,7 @@ function randomNumberStyle(randomNumber) {
     number.textContent = randomNumber
 
     numbersWrapper.append(square, number)
-    result.append(numbersWrapper）
+    formResult.append(numbersWrapper）
 }
 
 // Fecha o formulário dos inputs para dar inicio a animação do sorteio.
@@ -131,7 +131,7 @@ function openFormWrapper() {
     formWrapper.style.display = "block"
     textBtn.classList.remove("checked")
     imgBtn.classList.remove("checked")
-    result.textContent = ""
+    formResult.textContent = ""
     results = []
 
     
