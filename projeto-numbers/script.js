@@ -8,7 +8,7 @@ const fromInput = document.querySelector("#from")
 const toInput = document.querySelector("#to")
 const noRepeat = document.querySelector("#switch")
 
-const result = document.querySelector(".result")
+const formResult = document.querySelector(".form-result")
 
 // Animação durante o sorteio
 const formWrapper = document.querySelector(".form-wrapper")
@@ -16,7 +16,7 @@ const textBtn = document.querySelector("button span")
 const imgBtn = document.querySelector("button div")
 
 
-let drawnNumbers = []
+let results = []
 
 // Função para só aceitar números nos inputs
 function onlyNumericInput(inputElement) {
@@ -59,7 +59,7 @@ form.addEventListener("submit", (event) => {
         return
     }
 
-    if (noRepeat.checked && drawnNumbers.length >= allPossibilities) {
+    if (noRepeat.checked && results.length >= allPossibilities) {
         clearAllInputs()
         openFormWrapper()
         quantityInput.focus()
@@ -71,11 +71,11 @@ form.addEventListener("submit", (event) => {
 
         if (noRepeat.checked) {
             // MODO SEM REPETIÇÃO
-            if (drawnNumbers.length >= allPossibilities) break
+            if (results.length >= allPossibilities) break
             do {
                 newNumber = Math.floor(Math.random() * allPossibilities) + from
-            } while (drawnNumbers.includes(newNumber))
-                drawnNumbers.push(newNumber)
+            } while (results.includes(newNumber))
+                results.push(newNumber)
                 randomNumberStyle(newNumber)
                 closeFormWrapper()
 
@@ -107,7 +107,7 @@ function randomNumberStyle(randomNumber) {
     number.textContent = randomNumber
 
     numbersWrapper.append(square, number)
-    result.append(numbersWrapper)
+    result.append(numbersWrapper）
 }
 
 // Fecha o formulário dos inputs para dar inicio a animação do sorteio.
@@ -132,7 +132,7 @@ function openFormWrapper() {
     textBtn.classList.remove("checked")
     imgBtn.classList.remove("checked")
     result.textContent = ""
-    drawnNumbers = []
+    results = []
 
     
     let subtitle = document.querySelector(".info-wrapper h2")
