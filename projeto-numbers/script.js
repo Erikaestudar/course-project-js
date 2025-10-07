@@ -107,7 +107,7 @@ function randomNumberStyle(randomNumber) {
     number.textContent = randomNumber
 
     numbersWrapper.append(square, number)
-    formResult.append(numbersWrapper）
+    formResult.append(numbersWrapper)
 }
 
 // Fecha o formulário dos inputs para dar inicio a animação do sorteio.
@@ -137,9 +137,9 @@ function openFormWrapper() {
     
     let subtitle = document.querySelector(".info-wrapper h2")
     subtitle.classList.remove("subtitle-prize")
-    subtitle.textContent = "Quero sortear:"
+    
 
     let paragraph = document.querySelector(".info-wrapper p")
     paragraph.classList.remove("paragraph-prize")
-    paragraph.textContent =  `Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!`
+
 }
