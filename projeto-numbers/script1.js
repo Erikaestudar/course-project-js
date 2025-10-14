@@ -124,17 +124,28 @@ function openCloseFormWrapper(isOpen) {
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     
-    const qty = Number(quantityInput.value)
-    const from = Number(fromInput.value)
-    const to = Number(toInput.value)
+    const isFormOpen = formWrapper.style.display !== "none"
 
-    const numbers = generateRandomNumbers(qty, from, to, noRepeat.checked)
+    if (isFormOpen) {
 
-    numbers.forEach((randomNumber, index) => {
-        setTimeout(() => {
-            animationStyle(randomNumber)
-        }, 3000 * index)
-    })
-    console.log(numbers)
-    clearAllInputs()
+        formResult.innerHTML = ""
+
+        const qty = Number(quantityInput.value)
+        const from = Number(fromInput.value)
+        const to = Number(toInput.value)
+
+        const numbers = generateRandomNumbers(qty, from, to, noRepeat.checked)
+
+        numbers.forEach((randomNumber, index) => {
+            setTimeout(() => {
+                animationStyle(randomNumber)
+            }, 3000 * index)
+        })
+        clearAllInputs()
+        openCloseFormWrapper(false)
+    } else {
+
+        formResult.innerHTML = ""
+        openCloseFormWrapper(true)
+    }  
 })
