@@ -139,7 +139,7 @@ form.addEventListener("submit", (event) => {
         numbers.forEach((randomNumber, index) => {
             setTimeout(() => {
                 animationStyle(randomNumber)
-            }, 3000 * index)
+            }, 2500 * index)
         })
         clearAllInputs()
         openCloseFormWrapper(false)
