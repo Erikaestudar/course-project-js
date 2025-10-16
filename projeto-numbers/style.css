@@ -392,7 +392,7 @@ button {
 .random-btn span.default::after {
     content: "SORTEAR";
 }
-
+ 
 .random-btn .default .ani-01 {
     background: url(assets/icons/arrow.svg) no-repeat center/cover;
     width: 2rem;
@@ -404,9 +404,6 @@ button {
 }
 
 /* BOTÃO DA ANIMAÇÃO CHECKED */
-.random-btn span.checked::after {
-    content: "SORTEAR NOVAMENTE";
-}
 
 .random-btn .checked .ani-01 {
     background: url(assets/icons/arrow-loop.svg) no-repeat center;
@@ -425,6 +422,11 @@ button {
 
 .random-btn:hover .checked .ani-01  {
     animation: rotate 3s ease both;
+}
+
+.random-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* ASIDE */
